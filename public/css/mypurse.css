@@ -230,10 +230,20 @@ body {
 .mp_fifth_101 {
   padding: 5%;
 }
+.big_text_1 {
+  color: black;
+  font-family: "Clash Display", sans-serif;
+  font-size: var(--font-large);
+ 
+  font-weight: 600;
+}
 .big_text {
   color: black;
   font-family: "Clash Display", sans-serif;
   font-size: var(--font-large);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 600;
 }
 .big_text_lean {
@@ -294,11 +304,12 @@ body {
   background-color: #fff;
 }
 .mp_sixth_1 {
-  width: 40%;
+  width: 50%;
 }
 
 .mp_sixth_1 > h1 {
   text-align: center;
+  margin-top: 5rem;
 }
 .mp_sixth img:nth-child(1) {
   position: absolute;
@@ -316,7 +327,8 @@ body {
 .mp_sixth_2 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .mp_sixth_2 h1 {
@@ -327,7 +339,7 @@ body {
 }
 
 .mp_sixth_2 p {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 .mp_seventh {
   width: 100%;
@@ -651,6 +663,11 @@ footer {
     text-align: left;
     margin-top: 5rem;
   }
+  .njl{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+  }
   .mp_sixth_2 {
     display: block;
   }
@@ -666,6 +683,9 @@ footer {
   .mp_seventh {
     min-height: auto !important;
     height: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .mp_seventh {
     display: block;
