@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download My Purse Pay</title>
+    <link rel="stylesheet" href="../public/css/mypurse.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        (function() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            if (/android/i.test(userAgent)) {
+                window.location.replace("https://play.google.com/store/apps/details?id=ng.com.mypursepay.app");
+            } else {
+                window.location.replace("https://mypursepay.com");
+            }
+        })();
+    </script>
+    <style>
+        :root {
+            --primary: #4A00E0;
+            --secondary: #8E2DE2;
+            --accent: #FF6B6B;
+            --text: #2C3E50;
+            --light: #F8F9FA;
+        }
+        
+        body {
+            font-family: 'Manrope', sans-serif;
+            background: linear-gradient(135deg, var(--light) 0%, #FFFFFF 100%);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 400px;
+            padding: 2rem;
+            margin: 0 auto;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Clash Display', sans-serif;
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+            margin: 2rem 0;
+        }
+        
+        .badges {
+            /* display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0; */
+        }
+        
+        .badge {
+            background: var(--text);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-family: 'Clash Display', sans-serif;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        
+        .badge:hover {
+            transform: translateY(-2px);
+        }
+        
+        .badge.android {
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 100%);
+        }
+        
+        .badge.ios {
+            background: linear-gradient(135deg, #000000 0%, #434343 100%);
+        }
+        
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .spinner {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-top-color: rgb(0, 0, 0);
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        small {
+            display: block;
+            margin-top: 2rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loader">
+            <div class="spinner"></div>
+            <h2>Taking you to My Purse</h2>
+            <p>We're redirecting you to the best download option for your device...</p>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="badges">
+            <div class="mp_intro_102" style="justify-content: center; align-items: center;">
+                <a href="https://play.google.com/store/apps/details?id=ng.com.mypursepay.app" target="_blank"><img
+                  class=""
+                  src="../public/resource/GetItOnGooglePlay_Badge_Web_color_English 1.png"
+                  alt="getongoogleplay"
+                /></a>
+                <a><img
+                  class=""
+                  src="../public/resource/US_UK_Download_on_the.png"
+                  alt="getonappstore"
+                /></a>
+              </div>
+        </div>
+        
+        <small>Registered (Company No. 7862500)</small>
+    </div>
+</body>
+</html>

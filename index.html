@@ -41,14 +41,17 @@
       </div>
       <div class="mp_nav_2" id="storeButtons">
         <a id="appleStoreButton" class="btn halt">App Store</a>
-        <a id="googlePlayButton" class="btn halt" style="display: none"
+        <a id="googlePlayButton" href="https://play.google.com/store/apps/details?id=ng.com.mypursepay.app" target="_blank" class="btn" style="display: none;text-decoration: none;"
           >Play Store</a
         >
       </div>
     </nav>
     <main>
+      
+         <img class="mypursebanner" src="public/resource/mypursebanner.svg" alt="">
+  
       <div class="faustspromise">
-        My purse is coming to your app stores soon.
+        My purse is coming to your app store soon.
       </div>
       <section class="mp_intro">
         <dotlottie-player
@@ -69,11 +72,11 @@
             </p>
           </div>
           <div class="mp_intro_102">
-            <img
-              class="halt"
+            <a href="https://play.google.com/store/apps/details?id=ng.com.mypursepay.app" target="_blank"><img
+              class=""
               src="public/resource/GetItOnGooglePlay_Badge_Web_color_English 1.png"
               alt="getongoogleplay"
-            />
+            /></a>
             <img
               class="halt"
               src="public/resource/US_UK_Download_on_the.png"
@@ -107,7 +110,7 @@
           </div>
         </div>
       </section>
-      <!-- <div class="line"></div> -->
+
       <section class="mp_third">
         <div class="mp_third_1">
           <div>
@@ -288,7 +291,7 @@
           </p>
           <br />
         </div>
-        <img class="cascade" src="public/resource/pursebloom_5.png" alt="" />
+        <img class="cascade" src="public/resource/mypurseaccess.png" alt="" />
       </section>
 
       <div class="pursefeed">
@@ -298,12 +301,8 @@
         </div>
 
         <div class="pursefeed_2">
-          <img src="public/resource/pursefeed (1).svg" alt="" />
-          <img src="public/resource/pursefeed (2).svg" alt="" />
-        </div>
-        <div class="pursefeed_2">
-          <img src="public/resource/pursefeed (3).svg" alt="" />
-          <img src="public/resource/pursefeed (4).svg" alt="" />
+          <img src="public/resource/feed_two (1).svg" alt="" />
+          <img src="public/resource/feed_two (2).svg" alt="" />
         </div>
       </div>
     </main>
@@ -314,11 +313,11 @@
             <h1 class="big_text">Get the smart pocket app for Nigerians</h1>
 
             <div class="mp_intro_102">
-              <img
-                class="halt"
+              <a href="https://play.google.com/store/apps/details?id=ng.com.mypursepay.app" target="_blank"> <img
                 src="public/resource/GetItOnGooglePlay_Badge_Web_color_English 1.png"
                 alt=""
               />
+              </a>
               <img
                 class="halt"
                 src="public/resource/US_UK_Download_on_the.png"
@@ -329,29 +328,26 @@
           <div class="footer_content_split_2">
             <div>
               <h1 class="medium_text">Legal & control</h1>
-              <br />
-              <p>Terms & conditions</p>
-              <p>Privacy policy</p>
-              <p>BVN security</p>
-              <p>Information security</p>
-              <p>Cookie policy</p>
-            </div>
+              <br>
+              <a href="terms_of_use.html"><p>Terms of Use</p></a>
+              <a href="privacy_policy.html"><p>Privacy Policy</p></a>
+              <a href="account_deletion.html"><p>Account Deletion</p></a>
+          </div>
             <div class="x32">
               <h1 class="medium_text">My Purse App</h1>
               <br />
-              <p>About the company</p>
-              <p>FAQ</p>
-              <p>Scam awareness</p>
-              <p>Contact us</p>
-              <p>Our Instagram</p>
-              <p>Our X</p>
-              <p>Our LinkedIn</p>
+              <a href="faqs.html"><p>Faqs</p></a>
+              <p><a href="mailto:support@mypursepay.com.ng">Contact us</a></p>
+              <a href="https://instagram.com/mypursepay" target="_blank"><p>Our Instagram</p></a>
+              <a href="https://x.com/mypursepay" target="_blank"><p>Our X</p></a>
+              <a href="https://www.linkedin.com/company/my-purse-pay" target="_blank"><p>Our LinkedIn</p></a>
             </div>
+            
           </div>
         </div>
         <div class="dis">
           <p>
-            My purse is a product of my purse ltd. 2024 All rights reserved.
+            My purse is a product of my purse ltd. 2025 All rights reserved.
           </p>
           <br />
           <p>
@@ -395,5 +391,40 @@
         googlePlayButton.textContent = "Google Play Store";
       }
     });
+
+document.addEventListener("DOMContentLoaded", function() {
+  const mypursebanner = document.querySelector('.mypursebanner');
+  const faustspromise = document.querySelector('.faustspromise');
+  
+
+  mypursebanner.addEventListener('click', function(e) {
+    e.stopPropagation(); 
+    
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  
+    if (/android/i.test(userAgent)) {
+      window.location.href = "https://play.google.com/store/apps/details?id=ng.com.mypursepay.app";
+    } 
+
+    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      faustspromise.style.display = "flex";
+      setTimeout(() => {
+        faustspromise.style.display = "none";
+      }, 3000);
+    } 
+ 
+    else {
+      mypursebanner.style.display = "none";
+    }
+  });
+
+  document.addEventListener('click', function() {
+    mypursebanner.style.display = "none";
+  });
+  
+  mypursebanner.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+});
   </script>
 </html>
