@@ -36,7 +36,6 @@ body {
 }
 
 .mp_nav_101 {
-  width: 200px;
   height: 100%;
 }
 .mp_nav_101 img {
@@ -47,12 +46,12 @@ body {
   display: flex;
   width: 30%;
   align-items: center;
-  justify-content: space-evenly;
 }
 .mp_logo {
   font-family: "Clash Display", sans-serif;
   color: white;
   font-weight: 500;
+  margin-left: 1rem;
 }
 
 .mp_nav_2 {
@@ -223,7 +222,7 @@ body {
 
 .mp_fifth_1 {
   width: 100%;
-  background-color: #fff;
+  /* background-color: #fff; */
   height: 100%;
 }
 
@@ -255,8 +254,8 @@ body {
 .mp_fifth_2 {
   width: 100%;
   height: max-content;
-  margin-bottom: -0.1rem;
-  box-shadow: 0px -4px 25px 4px rgba(188, 188, 188, 0.25);
+  margin-bottom: 5rem;
+  /* box-shadow: 0px -4px 25px 4px rgba(188, 188, 188, 0.25); */
 }
 .purseafro {
   width: 100%;
@@ -326,9 +325,9 @@ body {
 
 .mp_sixth_2 {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .mp_sixth_2 h1 {
@@ -476,9 +475,9 @@ footer {
     font-size: 10px !important;
   }
 
-  .mp_nav_1 {
+  /* .mp_nav_1 {
     min-width: 400px !important;
-  }
+  } */
   :root {
     --font-large: 48px;
   }
@@ -503,17 +502,17 @@ footer {
     top: 0% !important;
     position: absolute;
   }
-  .mp_nav_1 {
+  /* .mp_nav_1 {
     min-width: 230px !important;
     justify-content: space-between;
-  }
+  } */
   .mp_nav,
   .mp_bottom {
     height: 40px;
   }
-  .mp_nav_101 {
+  /* .mp_nav_101 {
     width: 100px;
-  }
+  } */
   .mp_intro_2 img {
     width: 300px;
     height: auto !important;
@@ -724,8 +723,9 @@ footer {
   .mp_fifth_2 {
     width: 100%;
     height: max-content;
-    margin-bottom: -0.1rem;
-    box-shadow: 0px -4px 25px 4px rgba(188, 188, 188, 0.25);
+    margin-bottom: 1rem;
+    background-color: #fff !important;
+    /* box-shadow: 0px -4px 25px 4px rgba(188, 188, 188, 0.25); */
   }
 
   .pursefeed_2 {
@@ -845,5 +845,6 @@ footer {
 }
 a {
   color: unset;
+  text-decoration: none;
 }
 
