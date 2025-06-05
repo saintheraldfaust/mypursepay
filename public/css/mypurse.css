@@ -217,6 +217,7 @@ body {
   width: 100%;
   height: fit-content;
   padding: 2.5%;
+
   background-image: url("../resource/purseboom.svg") !important;
 }
 
@@ -636,7 +637,7 @@ footer {
   }
 
   .purse_split img {
-    max-width: 50%;
+    max-width: 80%;
     margin-top: 2rem;
     height: auto;
   }
@@ -756,6 +757,9 @@ footer {
     100%{
       top:6%;
     }
+  }
+  .mp_fifth{
+    margin-top: 1rem;
   }
 }
 
