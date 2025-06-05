@@ -346,7 +346,7 @@ body {
 .mp_seventh {
   width: 100%;
   height: fit-content;
-  min-height: 120vh;
+  min-height: 130vh;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -852,3 +852,15 @@ a {
   text-decoration: none;
 }
 
+.button{
+  padding: 1rem;
+  background-color: black;
+  color: #fff;
+  border-radius: 30px;
+  display: flex;
+  max-width: fit-content !important;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
