@@ -234,7 +234,7 @@ body {
   color: black;
   font-family: "Clash Display", sans-serif;
   font-size: var(--font-large);
- 
+
   font-weight: 600;
 }
 .big_text {
@@ -274,7 +274,7 @@ body {
 
 .purse_split div {
   width: 50%;
-  padding:5rem;
+  padding: 5rem;
 }
 
 .purse_split img {
@@ -337,7 +337,7 @@ body {
   font-weight: 600;
   color: black;
   margin-bottom: 1rem;
-  margin-top:2rem;
+  margin-top: 2rem;
 }
 
 .mp_sixth_2 p {
@@ -399,25 +399,24 @@ body {
   height: auto;
   padding: 10px;
 }
-.mypursebanner{
- max-width: 400px;
- height: auto;
- position: fixed;
- margin: auto;
- left:0;
- right: 0;
- cursor: pointer;
- z-index: 99;
- top: 0;
- bottom: 0;
+.mypursebanner {
+  max-width: 400px;
+  height: auto;
+  position: fixed;
+  margin: auto;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  z-index: 99;
+  top: 0;
+  bottom: 0;
 }
-
 
 footer {
   width: 100%;
   height: fit-content;
   position: relative;
-  min-height:fit-content !important;
+  min-height: fit-content !important;
   padding: 2.5%;
   background-image: url("../resource/purseboomfooter.svg") !important;
 }
@@ -594,11 +593,11 @@ footer {
 }
 
 @keyframes drop {
-  0%{
+  0% {
     top: 0;
   }
-  100%{
-    top:10%;
+  100% {
+    top: 10%;
   }
 }
 @media screen and (max-width: 680px) {
@@ -633,7 +632,7 @@ footer {
 
   .purse_split div {
     width: 100%;
-    padding:0rem;
+    padding: 0rem;
   }
 
   .purse_split img {
@@ -679,9 +678,9 @@ footer {
     text-align: left;
     margin-top: 5rem;
   }
-  .njl{
+  .njl {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
   }
   .mp_sixth_2 {
@@ -748,17 +747,17 @@ footer {
     padding-top: 2% !important;
   }
   .faustspromise {
-    top:6%;
+    top: 6%;
   }
   @keyframes drop {
-    0%{
+    0% {
       top: 0;
     }
-    100%{
-      top:6%;
+    100% {
+      top: 6%;
     }
   }
-  .mp_fifth{
+  .mp_fifth {
     margin-top: 1rem;
   }
 }
@@ -813,17 +812,17 @@ footer {
   :root {
     --font-large: 35px;
   }
-  .mp_d4{
+  .mp_d4 {
     max-height: fit-content !important;
   }
   .mp_third {
     flex-direction: column;
     height: 400px;
   }
-  .mp_5d h1{
-   justify-content: center;
-align-items: center;
-display: block;
+  .mp_5d h1 {
+    justify-content: center;
+    align-items: center;
+    display: block;
   }
 
   .mp_third_1 {
@@ -834,7 +833,7 @@ display: block;
     width: 100%;
     height: 50%;
   }
-  .mypursebanner{
+  .mypursebanner {
     max-width: 95%;
     width: 95%;
   }
@@ -861,7 +860,7 @@ a {
   text-decoration: none;
 }
 
-.button{
+.button {
   padding: 1rem;
   background-color: black;
   color: #fff;
@@ -874,9 +873,9 @@ a {
   padding-right: 1.5rem;
 }
 
-.drew{
-  padding:0.5rem;
-  padding-left:20px;
+.drew {
+  padding: 0.5rem;
+  padding-left: 20px;
   padding-right: 20px;
   border-radius: 30px;
   background-color: rgba(0, 0, 0, 0.09);
