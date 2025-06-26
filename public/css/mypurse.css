@@ -203,6 +203,8 @@ body {
   height: 100%;
   background-color: #98f500;
   display: flex;
+  padding-left: 10%;
+  padding-right: 10%;
   align-items: center;
   justify-content: center;
   color: black !important;
