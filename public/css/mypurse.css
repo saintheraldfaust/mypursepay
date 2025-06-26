@@ -797,7 +797,7 @@ footer {
   .footer_content {
     min-height: min-content !important;
     padding: 2rem !important;
-    height: 100vh;
+    height: fit-content !important;
   }
   
   .dis {
