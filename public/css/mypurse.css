@@ -352,7 +352,6 @@ body {
   min-height: 130vh;
   display: flex;
   text-align: center;
-  transform: translateY(20px);
   justify-content: center;
   position: relative;
   background-color: #fff;
@@ -800,6 +799,7 @@ footer {
     padding: 2rem !important;
     height: 95vh;
   }
+  
   .dis {
     width: 100% !important;
     margin-top: 5rem !important;
@@ -818,7 +818,9 @@ footer {
     width: auto;
   }
 }
-
+.ksf{
+  transform: translateY(20px);
+}
 @media screen and (max-width: 600px) {
   :root {
     --font-large: 35px;
