@@ -352,6 +352,7 @@ body {
   min-height: 130vh;
   display: flex;
   text-align: center;
+  transform: translateY(20px);
   justify-content: center;
   position: relative;
   background-color: #fff;
