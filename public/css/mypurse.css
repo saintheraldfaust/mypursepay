@@ -252,6 +252,9 @@ body {
   font-size: var(--font-large);
   font-weight: 500;
 }
+.bnj{
+  color: white !important;
+}
 .mp_fifth_2 {
   width: 100%;
   height: max-content;
@@ -417,7 +420,7 @@ footer {
   height: fit-content;
   position: relative;
   min-height: fit-content !important;
-  padding: 2.5%;
+  /* padding: 2.5%; */
   background-image: url("../resource/purseboomfooter.svg") !important;
 }
 .mp_bottom {
@@ -437,14 +440,21 @@ footer {
 .mp_small {
   font-size: 11px !important;
 }
+
+.bnd{
+  background-color: white !important;
+  color: black !important;
+}
 .footer_content {
   width: 100%;
   padding: 5rem;
-  background-color: white;
-  height: 100vh;
+  color: white !important;
+  background-color: black;
+  height: 95vh;
 }
 .footer_content_split {
   display: flex;
+  color: white !important;
   justify-content: space-between;
 }
 .footer_content_split_2 {
@@ -743,8 +753,8 @@ footer {
     display: none;
   }
   footer {
-    padding: 1.5% !important;
-    padding-top: 2% !important;
+    /* padding: 1.5% !important;
+    padding-top: 2% !important; */
   }
   .faustspromise {
     top: 6%;
