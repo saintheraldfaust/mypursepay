@@ -780,11 +780,15 @@ footer {
 @media screen and (max-width: 760px) {
   .footer_content_split {
     display: block;
+    margin-top:2rem !important;
   }
   .footer_content_split_2 {
     margin-top: 4rem;
     display: block !important;
     width: 100% !important;
+  }
+  .mls{
+    margin-bottom:2rem !important;
   }
   .footer_content_split_2 > div {
     width: 100% !important;
