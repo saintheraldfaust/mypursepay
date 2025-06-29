@@ -909,6 +909,9 @@ a {
 .atom_float {
   animation: float 3s infinite;
 }
+.atom_float_2 {
+  animation: float 4s infinite;
+}
 
 @keyframes float {
   0% {

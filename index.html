@@ -160,20 +160,108 @@ Budget smarter, send and receive money across multiple channels, access secure e
       <section class="mp_third">
         <div class="mp_third_1">
           <div>
-            <h1>0.9%</h1>
+            <h1 id="rateCounter">0%</h1>
           </div>
         </div>
         <div class="mp_third_2">
           <div>
-            <h1>No guesswork</h1>
+            <h1 id="headlineText">No guesswork</h1>
             <br />
             <p>
-              With the lowest charges on any payments infrastructure, MyPurse caps all transaction fees at <strong>0.9%</strong>—across transfers, crypto, bills, and more.
+              With the lowest charges on any payments infrastructure, MyPurse caps all transaction fees at
+              <strong>0.9%</strong>—across transfers, crypto, bills, and more.
               Transparent. Predictable. Built to keep your money in motion, not locked in overhead.
             </p>
           </div>
         </div>
       </section>
+      
+      <script>
+        function animateCountUp(el, endValue, duration = 1000, callback) {
+          const startTime = performance.now();
+          function update(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const current = (endValue * progress).toFixed(1);
+            el.textContent = current + '%';
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              callback?.();
+            }
+          }
+          requestAnimationFrame(update);
+        }
+      
+        function gsapStyleMorph(el, from, to, duration = 1000) {
+          const chars = '!<>-_\\/[]{}—=+*^?#________';
+          const frameRate = 30;
+          const steps = Math.floor(duration / frameRate);
+          const maxLength = Math.max(from.length, to.length);
+          const queue = [];
+      
+          for (let i = 0; i < maxLength; i++) {
+            const fromChar = from[i] || '';
+            const toChar = to[i] || '';
+            const start = Math.floor(Math.random() * steps * 0.6);
+            const end = start + Math.floor(Math.random() * steps * 0.4);
+            queue.push({ from: fromChar, to: toChar, start, end, char: '' });
+          }
+      
+          let frame = 0;
+          const interval = setInterval(() => {
+            let output = '';
+            let complete = true;
+      
+            for (let i = 0; i < queue.length; i++) {
+              let { from, to, start, end } = queue[i];
+      
+              if (frame < start) {
+                output += from;
+                complete = false;
+              } else if (frame >= end) {
+                output += to;
+              } else {
+                output += chars[Math.floor(Math.random() * chars.length)];
+                complete = false;
+              }
+            }
+      
+            el.textContent = output;
+            frame++;
+      
+            if (complete || frame > steps + 5) {
+              clearInterval(interval);
+              el.textContent = to;
+            }
+          }, frameRate);
+        }
+      
+        const rateEl = document.getElementById("rateCounter");
+        const headlineEl = document.getElementById("headlineText");
+      
+        let hasAnimated = false;
+      
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                animateCountUp(rateEl, 0.9, 1000, () => {
+                  gsapStyleMorph(headlineEl, "No guesswork", "Transparent fees", 1200);
+                });
+              } else if (!entry.isIntersecting) {
+                hasAnimated = false;
+                rateEl.textContent = "0%";
+                headlineEl.textContent = "No guesswork";
+              }
+            });
+          },
+          { threshold: 0.5 }
+        );
+      
+        observer.observe(rateEl);
+      </script>
       
 
       <section class="mp_sec mp_fourth">
@@ -223,13 +311,13 @@ Budget smarter, send and receive money across multiple channels, access secure e
                 <br>
                 <a href="https://app.mypursepay.com"><span class="button">Get onboard now</span></a>
               </div>
-              <img src="public/resource/mypurseavatar_tle.svg" alt="" />
+              <img class="atom_float" src="public/resource/mypurseavatar_tle.svg" alt="" />
             </div>
           </div>
           <div class="mp_fifth_2" style="background-color: #FAFAE7;">
             <img class="purseafro" src="public/resource/purseafro_2.png" alt="" />
             <div class="purse_split insane">
-              <img src="public/resource/mypurseavatar_ts.svg" alt="" />
+              <img class="atom_float_2" src="public/resource/mypurseavatar_ts.svg" alt="" />
               <div>
                 <h1 class="big_text_1">Bank transfers</h1>
                 <br />
@@ -253,13 +341,13 @@ Budget smarter, send and receive money across multiple channels, access secure e
                 <br>
                 <a href="https://app.mypursepay.com"><span class="button">Get onboard now</span></a>
               </div>
-              <img src="public/resource/mypurseavatar_tp.svg" alt="" />
+              <img class="atom_float" src="public/resource/mypurseavatar_tp.svg" alt="" />
             </div>
           </div>
           <div class="mp_fifth_2" style="background-color: #FAFAE7">
             <img class="purseafro" src="public/resource/purseafro_4.png" alt="" />
             <div class="purse_split insane">
-              <img src="public/resource/mypurseavatar_ts2.svg" alt="" />
+              <img class="atom_float_2" src="public/resource/mypurseavatar_ts2.svg" alt="" />
               <div>
                 <h1 class="big_text_1">Stablecoins</h1>
                 <br />
