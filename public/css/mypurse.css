@@ -260,7 +260,7 @@ padding-right: 2.5%;
 }
 .mp_fifth_2 {
   width: 100%;
-
+  /* transform: translateY(-20px); */
   height: max-content;
   /* margin-bottom: 5rem; */
   /* box-shadow: 0px -4px 25px 4px rgba(188, 188, 188, 0.25); */
