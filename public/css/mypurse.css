@@ -218,8 +218,9 @@ body {
 .mp_fifth {
   width: 100%;
   height: fit-content;
-  padding: 2.5%;
-
+  padding-top: 2.5%;
+padding-left: 2.5%;
+padding-right: 2.5%;
   background-image: url("../resource/purseboom.svg") !important;
 }
 
@@ -259,8 +260,9 @@ body {
 }
 .mp_fifth_2 {
   width: 100%;
+
   height: max-content;
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
   /* box-shadow: 0px -4px 25px 4px rgba(188, 188, 188, 0.25); */
 }
 .purseafro {
