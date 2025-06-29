@@ -736,7 +736,7 @@ footer {
     width: 100%;
     height: max-content;
     margin-bottom: 1rem;
-    background-color: #fff !important;
+    background-color: #FAFAE7 !important;
     /* box-shadow: 0px -4px 25px 4px rgba(188, 188, 188, 0.25); */
   }
 
@@ -761,6 +761,12 @@ footer {
   .faustspromise {
     top: 6%;
   }
+  .mp_fifth{
+    background-image: none !important;
+  }
+  .mp_fifth_2{
+    margin: 0 !important;
+  }
   @keyframes drop {
     0% {
       top: 0;
@@ -770,8 +776,11 @@ footer {
     }
   }
   .mp_fifth {
-    margin-top: 1rem;
+ margin-top: 10px;
   }
+   /* .mp_fifth_101{
+    background-color: #FAFAE7 !important;
+   } */
 }
 
 .pursefeed_1 {
@@ -901,3 +910,9 @@ a {
   max-width: fit-content;
   color: black !important;
 }
+/* .products{
+  position: absolute;
+  width: 500px;
+  height: 350px;
+  background-color: wheat;
+} */
