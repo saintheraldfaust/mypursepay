@@ -876,10 +876,11 @@ footer {
   }
 }
 .btn {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
   width: max-content;
   padding: 5px;
   padding-left: 10px;
+
   cursor: pointer;
   margin-left: 10px;
   border-radius: 30px;
@@ -899,8 +900,36 @@ a {
   max-width: fit-content !important;
   justify-content: center;
   align-items: center;
+  
   padding-left: 1.5rem;
+  transition: all 350ms ease-in-out;
   padding-right: 1.5rem;
+}
+
+.atom_float {
+  animation: float 3s infinite;
+}
+
+@keyframes float {
+  0% {
+
+    transform: translatey(0px);
+  }
+
+  50% {
+    transform: translatey(-60px);
+  }
+
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+
+.button:hover{
+  opacity: 0.80;
+  transform: translateY(-5px);
+  transition: all 350ms ease-in-out;
 }
 
 .drew {
@@ -912,11 +941,108 @@ a {
   max-width: fit-content;
   color: black !important;
 }
-/* .products{
+.products {
+  position: absolute;
+  width:600px;
+  height: 350px;
+  background-color: #FAFAE7;
+  z-index: 9999 !important;
+  top: 50px;
+  display: flex;
+   border-radius: 10px;
+  /* Center horizontally */
+  left: 50%;
+  transform: translateX(-50%);
+}
+.p1{
+  width: 45%;
+  height: 100%;
+  background-color: rgba(152,245,0,0.30);
+}
+.product-wrapper {
+  position: relative;
+}
+
+
+/* Initially hidden */
+.products {
   position: absolute;
   width: 500px;
   height: 350px;
   background-color: #FAFAE7;
-  z-index: 9999 !important;
- top: 50px;
-} */
+  z-index: 9999999 !important;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 250ms ease-in-out;
+}
+
+
+/* Show when hovering anywhere inside .product-wrapper */
+.product-wrapper:hover .products {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  animation: bounceIn 350ms ease forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: translateX(-50%) scale(0.9);
+  }
+  60% {
+    transform: translateX(-50%) scale(1.03);
+  }
+  80% {
+    transform: translateX(-50%) scale(0.98);
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+.p1 {
+  padding: 2rem;
+}
+.p1 h2{
+  color: black;
+  font-family: "Clash Display", sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.p1 p{
+  color: black;
+  font-size: 10px !important;
+}
+.p2{
+  padding: 2rem;
+  width: 55%;
+}
+
+.pitem{
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+
+}
+
+.pitem:hover{
+  background-color: rgba(0, 0, 0, 0.05) ;
+  border-radius: 10px;
+}
+.pitem img{
+  width: 40px;
+  height: auto;
+  margin-right: 1rem;
+}
+
+.pitem div{
+  color: #555555;
+  font-size: 10px;
+}
