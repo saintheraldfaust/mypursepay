@@ -361,6 +361,98 @@ Budget smarter, send and receive money across multiple channels, access secure e
           </div>
         </div>
       </section>
+      <script>
+        function gsapStyleMorph(el, from, to, duration = 1000) {
+          const chars = '!<>-_\\/[]{}—=+*^?#________';
+          const frameRate = 30;
+          const steps = Math.floor(duration / frameRate);
+          const maxLength = Math.max(from.length, to.length);
+          const queue = [];
+      
+          for (let i = 0; i < maxLength; i++) {
+            const fromChar = from[i] || '';
+            const toChar = to[i] || '';
+            const start = Math.floor(Math.random() * steps * 0.6);
+            const end = start + Math.floor(Math.random() * steps * 0.4);
+            queue.push({ from: fromChar, to: toChar, start, end });
+          }
+      
+          let frame = 0;
+          const interval = setInterval(() => {
+            let output = '';
+            let complete = true;
+      
+            for (let i = 0; i < queue.length; i++) {
+              let { from, to, start, end } = queue[i];
+      
+              if (frame < start) {
+                output += from;
+                complete = false;
+              } else if (frame >= end) {
+                output += to;
+              } else {
+                output += chars[Math.floor(Math.random() * chars.length)];
+                complete = false;
+              }
+            }
+      
+            el.textContent = output;
+            frame++;
+      
+            if (complete || frame > steps + 5) {
+              clearInterval(interval);
+              el.textContent = to;
+            }
+          }, frameRate);
+        }
+      
+        function observeMorph(targetEl, fromText, toText) {
+          let hasAnimated = false;
+      
+          const observer = new IntersectionObserver(
+            entries => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting && !hasAnimated) {
+                  hasAnimated = true;
+                  gsapStyleMorph(targetEl, fromText, toText, 1200);
+                } else if (!entry.isIntersecting) {
+                  hasAnimated = false;
+                  targetEl.textContent = fromText;
+                }
+              });
+            },
+            { threshold: 0.6 }
+          );
+      
+          observer.observe(targetEl);
+        }
+      
+        document.addEventListener("DOMContentLoaded", () => {
+          observeMorph(
+            document.querySelector('.mp_fifth_2:nth-of-type(2) .big_text_1'),
+            "P2P transfers",
+            "Peer to peer"
+          );
+      
+          observeMorph(
+            document.querySelector('.mp_fifth_2:nth-of-type(3) .big_text_1'),
+            "Bank transfers",
+            "Instant banking"
+          );
+      
+          observeMorph(
+            document.querySelector('.mp_fifth_2:nth-of-type(4) .big_text_1'),
+            "Shared transfers",
+            "Group-powered"
+          );
+      
+          observeMorph(
+            document.querySelector('.mp_fifth_2:nth-of-type(5) .big_text_1'),
+            "Stablecoins",
+            "Digital dollars"
+          );
+        });
+      </script>
       
       <!-- <div class="line boom_line"></div> -->
       <section class="mp_sixth">
