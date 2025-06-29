@@ -916,5 +916,7 @@ a {
   position: absolute;
   width: 500px;
   height: 350px;
-  background-color: wheat;
+  background-color: #FAFAE7;
+  z-index: 9999 !important;
+ top: 50px;
 } */
