@@ -103,8 +103,134 @@
         ></dotlottie-player>
         <div class="mp_intro_1">
           <div class="mp_intro_101">
-            <h1 class="min-set">Money & finance, engineered for you.</h1>
-           
+            <h1 class="min-set">
+              <div class="morph-container">
+                <span id="morphTarget">Money & finance</span>
+                <img id="productIcon" class="product-icon" src="public/resource/mf.svg" alt="Product Icon" />
+              </div>
+              <br>
+              engineered for you.
+            </h1>
+            
+            <script>
+(function() {
+    'use strict';
+    
+    let morphState = {
+        isAnimating: false,
+        currentIndex: 0,
+        phrases: [
+            { text: "Money & finance", icon: "public/resource/mf.svg" },
+            { text: "Lending infra", icon: "public/resource/ml.svg" },
+            { text: "Fintech infra", icon: "public/resource/mf.svg" },
+            { text: "School payments", icon: "public/resource/ms.svg" },
+            { text: "Business infra", icon: "public/resource/mb.svg" },
+            { text: "Escrow infra", icon: "public/resource/me.svg" },
+            { text: "Digital payments", icon: "public/resource/mf.svg" }
+        ]
+    };
+    
+    function morphText(el, from, to, duration = 1000, callback) {
+        const chars = '!<>-_\\/[]{}—=+*^?#________';
+        const frameRate = 30;
+        const steps = Math.floor(duration / frameRate);
+        const maxLength = Math.max(from.length, to.length);
+        const queue = [];
+        
+        for (let i = 0; i < maxLength; i++) {
+            const fromChar = from[i] || '';
+            const toChar = to[i] || '';
+            const start = Math.floor(Math.random() * steps * 0.6);
+            const end = start + Math.floor(Math.random() * steps * 0.4);
+            queue.push({ from: fromChar, to: toChar, start, end });
+        }
+        
+        let frame = 0;
+        const interval = setInterval(() => {
+            let output = '';
+            let complete = true;
+            
+            for (let i = 0; i < queue.length; i++) {
+                let { from, to, start, end } = queue[i];
+                if (frame < start) {
+                    output += from;
+                    complete = false;
+                } else if (frame >= end) {
+                    output += to;
+                } else {
+                    output += chars[Math.floor(Math.random() * chars.length)];
+                    complete = false;
+                }
+            }
+            
+            el.textContent = output;
+            frame++;
+            
+            if (complete || frame > steps + 15) {
+                clearInterval(interval);
+                el.textContent = to;
+                requestAnimationFrame(() => {
+                    if (callback) callback();
+                });
+            }
+        }, frameRate);
+    }
+    
+    function updateProductIcon(iconEl, newIconSrc) {
+        // Add exit animation to current icon
+        iconEl.classList.add('exit');
+        iconEl.classList.remove('active');
+        
+        setTimeout(() => {
+            // Change the icon source
+            iconEl.src = newIconSrc;
+            
+            // Remove exit class and add active class
+            iconEl.classList.remove('exit');
+            iconEl.classList.add('active');
+        }, 200); // Half of the transition duration
+    }
+    
+    function startMorphLoop() {
+        if (morphState.isAnimating) return;
+        
+        const morphEl = document.getElementById("morphTarget");
+        const iconEl = document.getElementById("productIcon");
+        if (!morphEl || !iconEl) return;
+        
+        morphState.isAnimating = true;
+        const fromPhrase = morphState.phrases[morphState.currentIndex];
+        const nextIndex = (morphState.currentIndex + 1) % morphState.phrases.length;
+        const toPhrase = morphState.phrases[nextIndex];
+        
+        // Update icon before morphing starts
+        updateProductIcon(iconEl, toPhrase.icon);
+        
+        morphText(morphEl, fromPhrase.text, toPhrase.text, 1000, () => {
+            morphState.currentIndex = nextIndex;
+            morphState.isAnimating = false;
+            setTimeout(startMorphLoop, 2000);
+        });
+    }
+    
+    function initMorph() {
+        const iconEl = document.getElementById("productIcon");
+        if (iconEl) {
+            // Set initial icon and make it active
+            iconEl.src = morphState.phrases[0].icon;
+            iconEl.classList.add('active');
+        }
+        setTimeout(startMorphLoop, 2000);
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMorph);
+    } else {
+        initMorph();
+    }
+})();
+            </script>
+
          
             <p class="min-set">
            <p class="drew">  AI driven payments infrastracture, crypto and personal finance platform.</p>
@@ -138,131 +264,332 @@ Budget smarter, send and receive money across multiple channels, access secure e
       </section>
       <section class="mp_sec">
         <div class="mp_sec_1">
-          <img src="public/resource/pursebloom_1.png" alt="" />
+            <img id="sectionImage" src="public/resource/pursebloom_1.png" alt="MyPurse Feature" />
         </div>
         <div class="mp_intro_1">
-          <div class="mp_intro_101 x09">
-            <h1>
-              Payout schedules for smart pockets
-              <img src="public/resource/pursemind.png" alt="" />
-            </h1>
-            <p>
-              Set personalized daily spending limits to keep your budget on track. Allocate NGN 300,000 for groceries, and MyPurse automatically releases NGN 10,000 daily to your spending account—ensuring controlled, consistent expense management without manual tracking.
-
-
-            </p>
-            <br>
-            <a href="https://app.mypursepay.com"><span class="button">Get onboard now</span></a>
-          </div>
+            <div class="mp_intro_101 x09">
+              <h1 style="position: relative;">
+                <span id="morphingTitle">Schedules for smart pockets</span>
+                <span id="morphingGhost" aria-hidden="true" style="visibility: hidden; position: absolute; inset: 0; pointer-events: none;"></span>
+                <img src="public/resource/pursemind.png" class="pursemind" alt="Feature icon" />
+              </h1>
+              
+                <p id="morphingDescription">
+                    Set personalized daily spending limits to keep your budget on track. Allocate NGN 300,000 for groceries, and MyPurse automatically releases NGN 10,000 daily to your spending account—ensuring controlled, consistent expense management without manual tracking.
+                </p>
+                <br>
+                <a href="https://app.mypursepay.com"><span class="button">Get onboard now</span></a>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <section class="mp_third">
-        <div class="mp_third_1">
-          <div>
-            <h1 id="rateCounter">0%</h1>
-          </div>
-        </div>
-        <div class="mp_third_2">
-          <div>
-            <h1 id="headlineText">No guesswork</h1>
-            <br />
-            <p>
-              With the lowest charges on any payments infrastructure, MyPurse caps all transaction fees at
-              <strong>0.9%</strong>—across transfers, crypto, bills, and more.
-              Transparent. Predictable. Built to keep your money in motion, not locked in overhead.
-            </p>
-          </div>
-        </div>
-      </section>
-      
-      <script>
-        function animateCountUp(el, endValue, duration = 1000, callback) {
-          const startTime = performance.now();
-          function update(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const current = (endValue * progress).toFixed(1);
-            el.textContent = current + '%';
-            if (progress < 1) {
-              requestAnimationFrame(update);
-            } else {
-              callback?.();
-            }
-          }
-          requestAnimationFrame(update);
-        }
-      
-        function gsapStyleMorph(el, from, to, duration = 1000) {
-          const chars = '!<>-_\\/[]{}—=+*^?#________';
-          const frameRate = 30;
-          const steps = Math.floor(duration / frameRate);
-          const maxLength = Math.max(from.length, to.length);
-          const queue = [];
-      
-          for (let i = 0; i < maxLength; i++) {
-            const fromChar = from[i] || '';
-            const toChar = to[i] || '';
-            const start = Math.floor(Math.random() * steps * 0.6);
-            const end = start + Math.floor(Math.random() * steps * 0.4);
-            queue.push({ from: fromChar, to: toChar, start, end, char: '' });
-          }
-      
-          let frame = 0;
-          const interval = setInterval(() => {
-            let output = '';
-            let complete = true;
-      
-            for (let i = 0; i < queue.length; i++) {
-              let { from, to, start, end } = queue[i];
-      
-              if (frame < start) {
+    <script>
+      (function() {
+          'use strict';
+          
+          let morphState = {
+              isAnimating: false,
+              currentIndex: 0,
+              content: [
+                  {
+                      title: "Schedules for smart pockets",
+                      description: "Set personalized daily spending limits to keep your budget on track. Allocate NGN 300,000 for groceries, and MyPurse automatically releases NGN 10,000 daily to your spending account—ensuring controlled, consistent expense management without manual tracking.",
+                      image: "public/resource/pursebloom_1.png"
+                  },
+                  {
+                      title: "Leading with a pioneer app",
+                      description: "Our pioneer banking app gives you access to the most secure, innovative and fast banking services provided by our licensed banking partners. Get access to loans, enjoy zero-charge transfers, pay and manage your bills the modern way, track and stay ahead of your finances.",
+                      image: "public/resource/pursebloom_7.png"
+                  }
+              ]
+          };
+          function morphText(el, from, to, duration = 1200, callback) {
+    const ghost = document.getElementById("morphingGhost");
+    const chars = '!<>-_\\/[]{}—=+*^?#__';
+    const frameRate = 30;
+    const steps = Math.floor(duration / frameRate);
+
+    const maxLength = Math.max(from.length, to.length);
+    const queue = [];
+
+    for (let i = 0; i < maxLength; i++) {
+        const fromChar = from[i] || ' ';
+        const toChar = to[i] || ' ';
+        const start = Math.floor(Math.random() * steps * 0.6);
+        const end = start + Math.floor(Math.random() * steps * 0.4);
+        queue.push({ from: fromChar, to: toChar, start, end });
+    }
+
+    let frame = 0;
+    const interval = setInterval(() => {
+        let output = '';
+        let complete = true;
+
+        for (let i = 0; i < queue.length; i++) {
+            const { from, to, start, end } = queue[i];
+            if (frame < start) {
                 output += from;
                 complete = false;
-              } else if (frame >= end) {
+            } else if (frame >= end) {
                 output += to;
-              } else {
+            } else {
                 output += chars[Math.floor(Math.random() * chars.length)];
                 complete = false;
-              }
             }
-      
-            el.textContent = output;
-            frame++;
-      
-            if (complete || frame > steps + 5) {
-              clearInterval(interval);
-              el.textContent = to;
-            }
-          }, frameRate);
         }
-      
-        const rateEl = document.getElementById("rateCounter");
-        const headlineEl = document.getElementById("headlineText");
-      
-        let hasAnimated = false;
-      
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting && !hasAnimated) {
-                hasAnimated = true;
-                animateCountUp(rateEl, 0.9, 1000, () => {
-                  gsapStyleMorph(headlineEl, "No guesswork", "Transparent fees", 1200);
+
+        el.textContent = output;
+        document.getElementById("morphingGhost").textContent = output;
+        frame++;
+
+        if (complete || frame > steps + 10) {
+            clearInterval(interval);
+            el.textContent = to;
+            ghost.textContent = to;
+            callback?.();
+        }
+    }, frameRate);
+}
+
+          function updateImage(imageEl, newImageSrc) {
+              imageEl.style.opacity = '2';
+              setTimeout(() => {
+                  imageEl.src = newImageSrc;
+                  imageEl.style.opacity = '1';
+              }, 250);
+          }
+          
+          function startMorphCycle() {
+              if (morphState.isAnimating) return;
+              
+              const titleEl = document.getElementById("morphingTitle");
+              const descEl = document.getElementById("morphingDescription");
+              const imageEl = document.getElementById("sectionImage");
+              
+              if (!titleEl || !descEl || !imageEl) return;
+              
+              morphState.isAnimating = true;
+              const currentContent = morphState.content[morphState.currentIndex];
+              const nextIndex = (morphState.currentIndex + 1) % morphState.content.length;
+              const nextContent = morphState.content[nextIndex];
+              
+              // Update image first
+              updateImage(imageEl, nextContent.image);
+              
+              // Morph title and smoothly update description
+              morphText(titleEl, currentContent.title, nextContent.title , 1200, () => {
+                  // Smooth, laid-back fade transition for description
+                  descEl.style.opacity = '0';
+                  descEl.style.transform = 'translateY(10px)';
+                  
+                  setTimeout(() => {
+                      descEl.textContent = nextContent.description;
+                      descEl.style.opacity = '1';
+                      descEl.style.transform = 'translateY(0)';
+                      
+                      morphState.currentIndex = nextIndex;
+                      morphState.isAnimating = false;
+                      // Schedule next cycle
+                      setTimeout(startMorphCycle, 4000);
+                  }, 600);
                 });
-              } else if (!entry.isIntersecting) {
-                hasAnimated = false;
-                rateEl.textContent = "0%";
-                headlineEl.textContent = "No guesswork";
-              }
-            });
-          },
-          { threshold: 0.5 }
-        );
-      
-        observer.observe(rateEl);
-      </script>
-      
+          }
+          
+          function initMorphCycle() {
+              // Start the first cycle after initial delay
+              setTimeout(startMorphCycle, 3000);
+          }
+          
+          if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', initMorphCycle);
+          } else {
+              initMorphCycle();
+          }
+      })();
+  </script>
+
+  <section class="mp_third">
+        <div class="mp_third_1">
+            <div>
+                <h1 id="rateCounter">0.0%</h1>
+            </div>
+        </div>
+        <div class="mp_third_2">
+            <div>
+                <h1 id="headlineText">No guesswork</h1>
+                <br />
+                <p id="descriptionText">
+                    Everything is intelligent, and you are at the center of it. Our AI systems knows exactly where and what your money is doing and it answers to you.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        (function() {
+            'use strict';
+            
+            let sectionState = {
+                isAnimating: false,
+                currentIndex: 0,
+                hasTriggered: false,
+                content: [
+                    {
+                        counter: 0.0,
+                        counterSuffix: '%',
+                        headline: "No guesswork",
+                        description: "Everything is intelligent, and you are at the center of it. Our AI systems knows exactly where and what your money is doing and it answers to you."
+                    },
+                    {
+                        counter: 0.9,
+                        counterSuffix: '%',
+                        headline: "Transaction fees",
+                        description: "With the lowest charges on any payments infrastructure, MyPurse caps all transaction fees at 0.9%—across transfers, crypto, bills, and more. Transparent. Predictable. Built to keep your money in motion, not locked in overhead."
+                    }
+                ]
+            };
+            
+            function animateCountUp(el, endValue, duration = 1000, callback) {
+    const startValue = parseFloat(el.textContent.replace('%', '')) || 0;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const current = (
+            startValue + (endValue - startValue) * progress
+        ).toFixed(1);
+        el.textContent = current + '%';
+
+        if (progress < 1) {
+            requestAnimationFrame(update);
+        } else {
+            el.textContent = endValue.toFixed(1) + '%';
+            callback?.();
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+            function gsapStyleMorph(el, from, to, duration = 1000, callback) {
+                const chars = '!<>-_\\/[]{}—=+*^?#________';
+                const frameRate = 30;
+                const steps = Math.floor(duration / frameRate);
+                const maxLength = Math.max(from.length, to.length);
+                const queue = [];
+                
+                for (let i = 0; i < maxLength; i++) {
+                    const fromChar = from[i] || '';
+                    const toChar = to[i] || '';
+                    const start = Math.floor(Math.random() * steps * 0.6);
+                    const end = start + Math.floor(Math.random() * steps * 0.4);
+                    queue.push({ from: fromChar, to: toChar, start, end });
+                }
+                
+                let frame = 0;
+                const interval = setInterval(() => {
+                    let output = '';
+                    let complete = true;
+                    
+                    for (let i = 0; i < queue.length; i++) {
+                        let { from, to, start, end } = queue[i];
+                        
+                        if (frame < start) {
+                            output += from;
+                            complete = false;
+                        } else if (frame >= end) {
+                            output += to;
+                        } else {
+                            output += chars[Math.floor(Math.random() * chars.length)];
+                            complete = false;
+                        }
+                    }
+                    
+                    el.textContent = output;
+                    frame++;
+                    
+                    if (complete || frame > steps + 5) {
+                        clearInterval(interval);
+                        el.textContent = to;
+                        if (callback) callback();
+                    }
+                }, frameRate);
+            }
+            
+            function smoothUpdateDescription(el, newText) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(15px)';
+                
+                setTimeout(() => {
+                    el.textContent = newText;
+                    el.style.opacity = '0.9';
+                    el.style.transform = 'translateY(0)';
+                }, 600);
+            }
+            
+            function cycleSectionContent() {
+                if (sectionState.isAnimating) return;
+                
+                const rateEl = document.getElementById("rateCounter");
+                const headlineEl = document.getElementById("headlineText");
+                const descEl = document.getElementById("descriptionText");
+                
+                if (!rateEl || !headlineEl || !descEl) return;
+                
+                sectionState.isAnimating = true;
+                const currentContent = sectionState.content[sectionState.currentIndex];
+                const nextIndex = (sectionState.currentIndex + 1) % sectionState.content.length;
+                const nextContent = sectionState.content[nextIndex];
+                
+                // Animate counter
+                animateCountUp(rateEl, nextContent.counter, 1200, () => {
+                    // Morph headline
+                    gsapStyleMorph(headlineEl, currentContent.headline, nextContent.headline, 1000, () => {
+                        // Smooth update description
+                        smoothUpdateDescription(descEl, nextContent.description);
+                        
+                        sectionState.currentIndex = nextIndex;
+                        sectionState.isAnimating = false;
+                        
+                        // Schedule next cycle
+                        setTimeout(cycleSectionContent, 3000);
+                    });
+                });
+            }
+            
+            function resetToInitial() {
+    const rateEl = document.getElementById("rateCounter");
+    const headlineEl = document.getElementById("headlineText");
+    const descEl = document.getElementById("descriptionText");
+
+    if (rateEl && headlineEl && descEl) {
+        const currentVal = parseFloat(rateEl.textContent.replace('%', '')) || 0;
+        const initialContent = sectionState.content[0];
+
+        animateCountUp(rateEl, 0, 800, () => {
+            rateEl.textContent = initialContent.counter + initialContent.counterSuffix;
+            headlineEl.textContent = initialContent.headline;
+            descEl.textContent = initialContent.description;
+            descEl.style.opacity = '0.9';
+            descEl.style.transform = 'translateY(0)';
+            sectionState.currentIndex = 0;
+            sectionState.hasTriggered = false;
+        });
+    }
+}
+
+            
+        
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(cycleSectionContent, 1500);
+    });
+} else {
+    setTimeout(cycleSectionContent, 1500);
+}
+        })();
+    </script>
 
       <section class="mp_sec mp_fourth">
         <div class="mp_sec_1 x10">
