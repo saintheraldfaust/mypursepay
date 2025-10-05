@@ -41,8 +41,8 @@
       </div>
       <div class="mp_nav_2" id="storeButtons">
         <div class="product-wrapper" style="position: relative;">
-          <div class="trigger" style="cursor: pointer;">Products</div>
-          <div class="products">
+          <div class="trigger" style="cursor: pointer;" id="productsMenuTrigger">Products</div>
+          <div class="products" id="productsMenu">
             <div class="p1">
               <h2>Products</h2>
               <br>
@@ -924,54 +924,59 @@ Seamless workforce payments and financial operations in one place. From scheduli
       });
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-      var appleStoreButton = document.getElementById("appleStoreButton");
-      var googlePlayButton = document.getElementById("googlePlayButton");
-      var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-      if (/android/i.test(userAgent)) {
-        appleStoreButton.style.display = "none";
-        googlePlayButton.style.display = "inline-block";
-      } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      } else {
-        googlePlayButton.style.display = "inline-block";
-        appleStoreButton.textContent = "iOS App Store";
-        googlePlayButton.textContent = "Google Play Store";
-      }
-    });
+
 
 document.addEventListener("DOMContentLoaded", function() {
-  const mypursebanner = document.querySelector('.mypursebanner');
-  const faustspromise = document.querySelector('.faustspromise');
-  
 
-  mypursebanner.addEventListener('click', function(e) {
-    e.stopPropagation(); 
-    
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  
-    if (/android/i.test(userAgent)) {
-      window.location.href = "https://play.google.com/store/apps/details?id=ng.com.mypursepay.app";
-    } 
 
-    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      faustspromise.style.display = "flex";
-      setTimeout(() => {
-        faustspromise.style.display = "none";
-      }, 3000);
-    } 
- 
-    else {
-      mypursebanner.style.display = "none";
-    }
-  });
 
-  document.addEventListener('click', function() {
-    mypursebanner.style.display = "none";
-  });
-  
-  mypursebanner.addEventListener('click', function(e) {
-    e.stopPropagation();
-  });
+
+
+  // All menu logic is now handled in the script below
 });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const productWrapper = document.querySelector('.product-wrapper');
+      const productsMenuTrigger = document.getElementById('productsMenuTrigger');
+
+      if (productWrapper && productsMenuTrigger) {
+        const toggleMenu = (e) => {
+          // Prevent link from navigating if it's a click
+          if (e.type === 'click') {
+            e.preventDefault();
+          }
+          
+          const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+          const isClick = e.type === 'click';
+
+          if (isTouch || isClick) {
+            productWrapper.classList.toggle('menu-active');
+          }
+        };
+
+        productsMenuTrigger.addEventListener('click', toggleMenu);
+
+        productWrapper.addEventListener('mouseenter', () => {
+          const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+          if (!isTouch) {
+            productWrapper.classList.add('menu-active');
+          }
+        });
+
+        productWrapper.addEventListener('mouseleave', () => {
+          const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+          if (!isTouch) {
+            productWrapper.classList.remove('menu-active');
+          }
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!productWrapper.contains(e.target)) {
+            productWrapper.classList.remove('menu-active');
+          }
+        });
+      }
+    });
   </script>
 </html>

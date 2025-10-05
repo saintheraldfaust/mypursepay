@@ -501,21 +501,38 @@ footer {
     font-weight: 400;
   }
 }
-/* Initially hidden */
+/* Products menu - CSS-driven positioning */
 .products {
   position: absolute;
   width: 500px;
-  height: 350px;
+  height: auto;
+  min-height: 350px;
   background-color: #FAFAE7;
   z-index: 9999999 !important;
-  top: 0px;
+  top: 100%;
+  margin-top: 10px;
   left: 50%;
   transform: translateX(-50%) scale(0.95);
+  
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: all 250ms ease-in-out;
+  transform-origin: top center;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+  
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
 }
+
+/* Show menu when parent is active */
+.product-wrapper.menu-active .products {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) scale(1);
+}
+
 @media screen and (max-width: 900px) {
   
  
@@ -989,31 +1006,10 @@ a {
 }
 
 
-/* Initially hidden */
-.products {
-  position: absolute;
-  width: 500px;
-  height: 350px;
-  background-color: #FAFAE7;
-  z-index: 9999999 !important;
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%) scale(0.95);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: all 250ms ease-in-out;
-}
+/* Duplicate removed - main definition is above */
 
 
-/* Show when hovering anywhere inside .product-wrapper */
-.product-wrapper:hover .products {
-  transform: translateX(-50%) scale(1);
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  animation: bounceIn 350ms ease forwards;
-}
+/* Legacy hover support removed - now handled by JavaScript for better responsiveness */
 
 @keyframes bounceIn {
   0% {
@@ -1153,22 +1149,66 @@ a {
   max-height: 2.4em;          /* 2 lines × line-height */
 }
 @media screen and (max-width: 900px) {
-  .products{
+  .products {
+    width: 400px;
     flex-direction: column;
-    width: 300px !important;
     height: auto !important;
+    min-height: 400px !important;
   }
   .p1{
     width: 100% !important;
+    padding: 1rem;
   }
-
-  /* Show when hovering anywhere inside .product-wrapper */
-.product-wrapper:hover .products {
-  transform: translateX(-50%) scale(1) !important;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
- 
+  .p2{
+    width: 100% !important;
+    padding: 1rem !important;
+  }
 }
 
+@media screen and (max-width: 768px) {
+  .products {
+    width: 90vw; /* Use viewport width */
+    max-width: 400px; /* But don't get too big */
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%) scale(0.95);
+  }
+  
+  .product-wrapper.menu-active .products {
+    transform: translateX(-80%) scale(1);
+  }
 }
+
+/* Additional mobile phone styles */
+@media screen and (max-width: 480px) {
+  .products {
+    width: calc(100vw - 40px);
+    max-width: 350px;
+  }
+  .p1 {
+    padding: 0.75rem !important;
+  }
+  
+  .p2 {
+    padding: 0.75rem !important;
+  }
+  
+  .pitem {
+    padding: 0.5rem !important;
+  }
+  
+  .pitem div {
+    font-size: 9px !important;
+  }
+}
+  
+  /* Mobile touch improvements */
+  .trigger {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .trigger:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
