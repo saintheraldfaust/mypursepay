@@ -1175,7 +1175,7 @@ a {
   }
   
   .product-wrapper.menu-active .products {
-    transform: translateX(-80%) scale(1);
+    transform: translateX(-55%) scale(1);
   }
 }
 
@@ -1185,14 +1185,14 @@ a {
     width: calc(100vw - 40px);
     max-width: 350px;
   }
-  /* .p1 {
+  .p1 {
     padding: 0.75rem;
   }
   
   .p2 {
     padding: 0.75rem !important;
   }
-   */
+  
   .pitem {
     padding: 0.5rem !important;
   }

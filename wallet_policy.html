@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Purse Pay - Account Deletion</title>
+    <title>My Purse Pay - Wallet Policy</title>
     <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
@@ -85,8 +85,8 @@
         <section class="mp_intro">
             <div class="mp_intro_1">
                 <div class="mp_intro_101">
-                    <h1>Account Deletion Policy</h1>
-                    <p><strong>Effective Date:</strong> October 6, 2025 <br> <strong>Last Updated:</strong> October 6, 2025</p>
+                    <h1>Wallet Policy</h1>
+                    <p>Mypursepay Detailed Wallet Policy & Disclosure</p>
                 </div>
             </div>
         </section>
@@ -94,9 +94,8 @@
         <section class="mp_sec">
             <div class="mp_intro_1">
                 <div class="mp_intro_101 x09">
-                    <h2>1. Introduction</h2>
-                    <p>At Mypursepay, we respect your right to control your data and account. This Account Deletion Policy explains how to permanently delete your Mypursepay account, what information is removed, and what information we must retain under law or financial-service regulations.</p>
-                    <p>Deleting your Mypursepay account removes your access to our applications, dashboards, and digital tools. It does not automatically close or delete your Sterling Bank / Embedly wallet, which is governed separately by Sterling Bank’s and Embedly’s terms.</p>
+                    <h2>1. Custody & Ownership</h2>
+                    <p>All customer funds held within Mypursepay wallets are custody of Sterling Bank Plc via the Embedly platform. Mypursepay does not hold customer funds in any corporate account or other custodian account. Sterling Bank retains legal custody and settlement responsibility.</p>
                 </div>
             </div>
         </section>
@@ -104,14 +103,8 @@
         <section class="mp_sec">
             <div class="mp_intro_1">
                 <div class="mp_intro_101 x09">
-                    <h2>2. How to Request Account Deletion</h2>
-                    <p>You can request deletion in one of three ways:</p>
-                    <ul>
-                        <li><strong>In-App Request:</strong> Go to Settings → Account → Delete Account and follow the instructions.</li>
-                        <li><strong>Email Request:</strong> Send a verified email from your registered address to <a href="mailto:support@mypursepay.com">support@mypursepay.com</a> with the subject “Account Deletion Request.”</li>
-                        <li><strong>Written Request:</strong> Submit a signed letter to Mypursepay Ltd, Compliance Office, [insert address].</li>
-                    </ul>
-                    <p>For security, we may verify your identity (e.g., via BVN, NIN, OTP, or other credentials) before processing.</p>
+                    <h2>2. Single Wallet Model and Logical Allocations</h2>
+                    <p>Each user has one legal wallet on the Embedly platform. Mypursepay implements logical allocations (<strong>Spending Balance</strong> and <strong>Holding Balance</strong>) that represent user-directed categorisations of the <strong>True Balance</strong>. These do not represent separate bank accounts; they are records in our application that control access by enforcing transaction rules.</p>
                 </div>
             </div>
         </section>
@@ -119,23 +112,8 @@
         <section class="mp_sec">
             <div class="mp_intro_1">
                 <div class="mp_intro_101 x09">
-                    <h2>3. What Happens When You Delete Your Account</h2>
-                    <h3>3.1 Immediate Effects</h3>
-                    <ul>
-                        <li>Your Mypursepay login credentials are permanently deactivated.</li>
-                        <li>Access to dashboards, analytics, personal-finance tools, and commerce modules is removed.</li>
-                        <li>API keys, tokens, and developer access (if any) are revoked.</li>
-                    </ul>
-                    <h3>3.2 Data Deletion</h3>
-                    <p>Upon successful verification:</p>
-                    <ul>
-                        <li>Personal profile data, preferences, stored contacts, and analytics linked to your user ID are deleted from Mypursepay systems.</li>
-                        <li>Logical balances (Spending / Holding) are cleared from our interface; underlying funds remain in your Embedly wallet.</li>
-                        <li>Linked integrations (e.g., storefronts, payroll records, affiliate dashboards) are disabled and archived.</li>
-                    </ul>
-                    <h3>3.3 Wallet Balances</h3>
-                    <p>Funds in your Sterling Bank wallet remain accessible through Embedly. To close the wallet entirely, you must separately contact Embedly Support at <a href="mailto:hello@embedly.ng">hello@embedly.ng</a>.</p>
-                    <p>Mypursepay cannot directly withdraw, move, or close your custodial wallet.</p>
+                    <h2>3. Deposit & Allocation Flow</h2>
+                    <p>When a deposit is initiated, the funds are credited to the user's Sterling/Embedly wallet. Embedly issues a webhook event; Mypursepay reconciles the event and updates the user's True Balance and the application-level allocations according to the user's selection (Spending or Holding).</p>
                 </div>
             </div>
         </section>
@@ -143,14 +121,8 @@
         <section class="mp_sec">
             <div class="mp_intro_1">
                 <div class="mp_intro_101 x09">
-                    <h2>4. Data Retention After Deletion</h2>
-                    <p>In accordance with NDPA 2023, CBN AML/CFT Regulations, and KYC record-keeping laws, we may retain minimal records for:</p>
-                    <ul>
-                        <li>Regulatory and audit purposes (typically 5 years).</li>
-                        <li>Legal disputes or fraud investigations.</li>
-                        <li>Transaction metadata required by Sterling Bank or Embedly.</li>
-                    </ul>
-                    <p>Such retained data is securely archived, access-restricted, and used only for compliance verification.</p>
+                    <h2>4. Spending & Holding: Definitions and Enforceable Rules</h2>
+                    <p><strong>Spending Balance:</strong> funds available to initiate transfers, bill payments, and withdrawals. <strong>Holding Balance:</strong> funds the user elects to lock; Mypursepay enforces this lock at the application layer and will block transfer instructions that would reduce Spending below zero or breach the Holding allocation.</p>
                 </div>
             </div>
         </section>
@@ -158,12 +130,8 @@
         <section class="mp_sec">
             <div class="mp_intro_1">
                 <div class="mp_intro_101 x09">
-                    <h2>5. Deletion Timelines</h2>
-                    <ul>
-                        <li><strong>Standard requests:</strong> processed within 15 business days of verification.</li>
-                        <li><strong>Complex cases</strong> (e.g., active disputes or regulatory holds): up to 30 business days.</li>
-                    </ul>
-                    <p>You will receive email confirmation when deletion is complete.</p>
+                    <h2>5. Withdrawal & Transfer Execution</h2>
+                    <p>All withdrawals and transfers are executed by Sterling Bank/Embedly. Mypursepay performs a pre-execution check: verifying that requested amounts are within the user's available Spending Balance. If the check passes, Mypursepay instructs Embedly to execute the transaction. If the check fails, the request is blocked and notified to the user.</p>
                 </div>
             </div>
         </section>
@@ -171,8 +139,8 @@
         <section class="mp_sec">
             <div class="mp_intro_1">
                 <div class="mp_intro_101 x09">
-                    <h2>6. Re-Activation</h2>
-                    <p>Once deleted, your Mypursepay account cannot be restored. You may register again using the same credentials, but prior data, schedules, or dashboards will not be recoverable.</p>
+                    <h2>6. Escrow & Conditional Holds</h2>
+                    <p>Escrow may be implemented using Embedly's native escrow features where available, or via application-level conditional holds. Release triggers (e.g., delivery confirmation, time-based release, dispute resolution) must be clearly defined in the transaction metadata. Mypursepay will only instruct Embedly to release funds upon verified satisfaction of triggers.</p>
                 </div>
             </div>
         </section>
@@ -180,13 +148,8 @@
         <section class="mp_sec">
             <div class="mp_intro_1">
                 <div class="mp_intro_101 x09">
-                    <h2>7. Exceptions to Deletion</h2>
-                    <p>We may decline or delay deletion if:</p>
-                    <ul>
-                        <li>There are ongoing investigations or legal obligations.</li>
-                        <li>The account is flagged for fraud or AML/CFT review.</li>
-                        <li>Regulatory bodies require temporary retention.</li>
-                    </ul>
+                    <h2>7. P2P Transfers & Mapping</h2>
+                    <p>P2P transfers are performed via Embedly's wallet-to-wallet API. Mypursepay maps user identifiers (phone, email, username) to Embedly wallet IDs and submits the transfer request. Timestamps, reference IDs, and status codes returned by Embedly are recorded in Mypursepay's immutable transaction logs.</p>
                 </div>
             </div>
         </section>
@@ -194,13 +157,8 @@
         <section class="mp_sec">
             <div class="mp_intro_1">
                 <div class="mp_intro_101 x09">
-                    <h2>8. Contact Information</h2>
-                    <p>For account deletion or data-erasure questions, contact:</p>
-                    <p><strong>Mypurse LTD — Data Protection & Compliance Office</strong><br>
-                    📧 <a href="mailto:support@mypursepay.com">support@mypursepay.com</a> | <a href="mailto:privacy@mypursepay.com">privacy@mypursepay.com</a><br>
-                    📍 [Insert Registered Address]<br>
-                    📞 [+234 xxx xxx xxxx]</p>
-                    <p>If we do not resolve your request, you may escalate to the Nigeria Data Protection Commission (NDPC).</p>
+                    <h2>8. Reconciliation and Audit Procedures</h2>
+                    <p>Mypursepay follows a webhook-first reconciliation model: webhooks are the primary source of truth for transactional events. In the event of missed webhooks, periodic polling of Embedly's balance API occurs. Daily full reconciliations are run comparing Embedly balances to the sum of classified allocations (Spending + Holding). Any variance beyond predefined thresholds is escalated to finance and operations.</p>
                 </div>
             </div>
         </section>
@@ -208,8 +166,44 @@
         <section class="mp_sec">
             <div class="mp_intro_1">
                 <div class="mp_intro_101 x09">
-                    <h2>9. Final Statement</h2>
-                    <p>We believe privacy and transparency are essential to trust. Deleting your account ensures that only the data required by law remains securely retained, and no further processing occurs under your profile.</p>
+                    <h2>9. Exception Handling & Dispute Process</h2>
+                    <p>When discrepancies or failed transactions occur, the user files a dispute via the support channel. Mypursepay logs the dispute, conducts preliminary technical checks, and escalates to Embedly/Sterling as required. Resolution timelines are tracked and disclosed to the user.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp_sec">
+            <div class="mp_intro_1">
+                <div class="mp_intro_101 x09">
+                    <h2>10. Security & Data Protection</h2>
+                    <p>KYC data and transaction records are stored securely with encryption in transit and at rest. Access to production systems is strictly role-based. Breach notification procedures and data retention policies comply with applicable laws.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp_sec">
+            <div class="mp_intro_1">
+                <div class="mp_intro_101 x09">
+                    <h2>11. Operational Controls & Audit Trail</h2>
+                    <p>All changes to user allocation (Spending/Holding) are recorded with timestamps, actor IDs, and reasons. A minimum retention period for financial logs is maintained for regulatory and audit purposes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp_sec">
+            <div class="mp_intro_1">
+                <div class="mp_intro_101 x09">
+                    <h2>12. User Controls & Consent</h2>
+                    <p>Users provide affirmative consent to allocation changes. Scheduled or automated releases of Holding funds require explicit user confirmation at the point of scheduling and are reversible only per the defined window in platform controls.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mp_sec">
+            <div class="mp_intro_1">
+                <div class="mp_intro_101 x09">
+                    <h2>13. Contact & Escalation</h2>
+                    <p>For wallet inquiries: <strong>support@mypursepay.com.ng</strong>. For custody & settlement issues: <strong>hello@embedly.ng</strong>. For compliance escalation: <strong>compliance@mypursepay.com.ng</strong>.</p>
                 </div>
             </div>
         </section>
