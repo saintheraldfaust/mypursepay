@@ -1,0 +1,9 @@
+# robots.txt for mypursepay.com
+User-agent: *
+# Do not index the old About page if it still exists or is cached
+Disallow: /about_us.html
+
+# Allow everything else
+Allow: /
+
+Sitemap: https://mypursepay.com/sitemap.xml
