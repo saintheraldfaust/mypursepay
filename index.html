@@ -306,8 +306,21 @@ Mypursepay is an embedded commercial platform for individuals, businesses, and i
           <small>Registered (Company No. 7805208)</small>
         </div>
         <div class="mp_intro_2">
-          <img src="public/resource/pursemain.png" alt="" />
+          <img src="public/resource/pursemain.png" class="main-image active" alt="" />
+          <img src="public/resource/storeimage.png" class="store-image" alt="" />
         </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const images = document.querySelectorAll(".mp_intro_2 img");
+            let currentIndex = 0;
+            
+            setInterval(() => {
+              images[currentIndex].classList.remove("active");
+              currentIndex = (currentIndex + 1) % images.length;
+              images[currentIndex].classList.add("active");
+            }, 5000);
+          });
+        </script>
       </section>
       <section class="mp_sec">
         <div class="mp_sec_1">
