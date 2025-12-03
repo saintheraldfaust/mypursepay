@@ -105,6 +105,8 @@ body {
   justify-content: center;
   flex-direction: column;
   padding: 5rem;
+  position: relative;
+  z-index: 5;
 }
 .mp_intro_101 h1 {
   font-family: "Clash Display", sans-serif;
@@ -112,6 +114,13 @@ body {
   margin-bottom: 30px;
   color: black;
   font-weight: 600;
+}
+.mp_intro_101 p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 10px;
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .mp_intro_102 {
   display: flex;
@@ -525,6 +534,30 @@ footer {
   display: flex;
 }
 
+/* Invisible bridge to prevent menu closing when moving mouse over the gap */
+.products::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  z-index: 1;
+}
+
+/* Additional bridge on the wrapper to catch mouse leaving the trigger */
+.product-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  width: 120%;
+  height: 50px;
+  background: transparent;
+  z-index: 0;
+}
+
 /* Show menu when parent is active */
 .product-wrapper.menu-active .products {
   opacity: 1;
@@ -653,15 +686,41 @@ footer {
   }
 }
 @media screen and (max-width: 680px) {
+  .mp_intro {
+    flex-direction: column;
+    height: auto !important;
+  }
   .mp_intro_1 {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 2rem !important;
+    height: auto !important;
   }
   .mp_intro_2 {
-    display: none;
+    display: block;
+    width: 100%;
+    height: 350px;
+    position: relative !important;
+    right: auto !important;
+    top: auto !important;
+    margin-top: 2rem;
+    background-color: transparent;
+    backdrop-filter: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+  .mp_intro_2 img {
+    position: absolute;
+    width: 90%;
+    height: auto !important;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: block;
+    transform: rotate(0deg);
   }
   .mp_bottom .mp_nav_1 {
     display: none !important;
@@ -801,6 +860,15 @@ footer {
   .faustspromise {
     top: 6%;
   }
+
+  .mp_intro_101 h1 {
+
+  margin-bottom: 10px !important;
+  
+}
+.pursemind{
+  margin-left:1rem;
+}
   /* .mp_fifth{
     background-image: none !important;
   } */
@@ -1212,3 +1280,70 @@ a {
   .trigger:hover {
     background-color: rgba(0, 0, 0, 0.05);
   }
+.pill-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 99;
+  width: 100%;
+}
+
+.pill {
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000000 !important;
+  font-family: "Manrope", sans-serif;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  
+  /* Glass/Gloss Effect */
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 51%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  /* Permanent top glare + drop shadow */
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.9),
+    0 4px 6px rgba(0,0,0,0.1);
+  
+  /* Animation */
+  animation: float-pill 4s ease-in-out infinite;
+  cursor: default;
+  transition: transform 0.3s ease;
+  
+  /* Ensure visibility */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 100;
+}
+
+.pill:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    inset 0 2px 4px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.05),
+    0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Staggered animation delays */
+.pill:nth-child(1) { animation-delay: 0s; }
+.pill:nth-child(2) { animation-delay: 1.5s; }
+.pill:nth-child(3) { animation-delay: 0.8s; }
+.pill:nth-child(4) { animation-delay: 2.2s; }
+
+@keyframes float-pill {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}

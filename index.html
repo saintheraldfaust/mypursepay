@@ -36,6 +36,7 @@
       src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
       type="module"
     ></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 
     <link
       href="https://api.fontshare.com/v2/css?f[]=clash-display@300,400,500,600,700&f[]=manrope@200,300,400,500,600,700,800&display=swap"
@@ -92,31 +93,34 @@
               <p>We are committed to developing an ecosystem that supports resilient and reliable commerce across the globe by developing frontier products and providing first class support across the board.</p>
             </div>
             <div class="p2">
-              <div class="pitem">
+              <a href="https://app.mypursepay.com/" class="pitem" style="text-decoration: none;">
                 <img src="public/resource/mss.svg" alt="">
                 <div>Stores on mypursepay</div>
-              </div>
-              <div class="pitem">
+              </a>
+              <a href="https://app.mypursepay.com/" class="pitem" style="text-decoration: none;">
                 <img src="public/resource/ml.svg" alt="">
                 <div>Logistics on mypursepay</div>
-              </div>
-              <div class="pitem">
+              </a>
+              <a href="https://app.mypursepay.com/" class="pitem" style="text-decoration: none;">
                 <img src="public/resource/me.svg" alt="">
                 <div>Enterprise on mypursepay</div>
-              </div>
-              <div class="pitem">
+              </a>
+              <a href="https://app.mypursepay.com/" class="pitem" style="text-decoration: none;">
                 <img src="public/resource/mb.svg" alt="">
                 <div>Business (SME) on mypursepay</div>
-              </div>
-              <div class="pitem">
+              </a>
+              <a href="https://app.mypursepay.com/" class="pitem" style="text-decoration: none;">
                 <img src="public/resource/ms.svg" alt="">
                 <div>Schools on mypursepay</div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
-        <a class="btn" href="https://app.mypursepay.com/">Sign in</a>
-        <a class="btn" style="background-color:white !important;color:black !important" href="https://stores.mypursepay.com/">Visit stores</a>
+        <a class="btn" href="https://app.mypursepay.com/" style="display: inline-flex; align-items: center; gap: 6px;">
+          <i data-lucide="lock" style="width: 14px; height: 14px;"></i>
+          Manage business
+        </a>
+        <!-- <a class="btn" style="background-color:white !important;color:black !important" href="https://stores.mypursepay.com/"> Stores</a> -->
         <!-- <a id="appleStoreButton" class=" halt btn">App Store</a>
         <a
           id="googlePlayButton"
@@ -307,10 +311,16 @@ Mypursepay is an embedded commercial platform for individuals, businesses, and i
       </section>
       <section class="mp_sec">
         <div class="mp_sec_1">
-            <img id="sectionImage" src="public/resource/pursebloom_1.png" alt="MyPurse Feature" />
+            <img id="sectionImage" src="public/resource/checkout.png" alt="MyPurse Feature" />
         </div>
         <div class="mp_intro_1">
             <div class="mp_intro_101 x09">
+              <div class="pill-container">
+                <span class="pill" style="background-color: #98F500 !important;">Integrations</span>
+                <span class="pill" style="background-color: #FF0ACB !important;">Easy checkout buttons</span>
+                <span class="pill" style="background-color: #FF645C !important;">Ecommerce</span>
+                <span class="pill" style="background-color: #5FFFC5 !important;">Orders & quick payouts</span>
+              </div>
               <h1 style="position: relative;">
                 <span id="morphingTitle">Ecosystem you can rely on</span>
                 <span id="morphingGhost" aria-hidden="true" style="visibility: hidden; position: absolute; inset: 0; pointer-events: none;"></span>
@@ -326,7 +336,7 @@ Mypursepay is an embedded commercial platform for individuals, businesses, and i
         </div>
     </section>
 
-    <!-- <script>
+    <script>
       (function() {
           'use strict';
           
@@ -335,14 +345,14 @@ Mypursepay is an embedded commercial platform for individuals, businesses, and i
               currentIndex: 0,
               content: [
                   {
-                      title: "Schedules for smart pockets",
-                      description: "Set personalized daily spending limits to keep your budget on track. Allocate NGN 300,000 for groceries, and MyPurse automatically releases NGN 10,000 daily to your spending account—ensuring controlled, consistent expense management without manual tracking.",
-                      image: "public/resource/pursebloom_1.png"
+                      title: "Ecosystem you can rely on",
+                      description: "At the heart of Mypursepay is a secure, intelligent ecosystem that powers all core products. From ecommerce to payroll, personal finance to data, every transaction flows seamlessly across one ecosystem, connecting thousands of individuals, businesses, and institutions through trusted financial & commercial relationships.",
+                      image: "public/resource/checkout.png"
                   },
                   {
-                      title: "Leading with a pioneer app",
-                      description: "Our pioneer banking app gives you access to the most secure, innovative and fast banking services provided by our licensed banking partners. Get access to loans, enjoy zero-charge transfers, pay and manage your bills the modern way, track and stay ahead of your finances.",
-                      image: "public/resource/pursebloom_7.png"
+                      title: "Same day payouts, always",
+                      description: "Do not wait for days to get settled your payouts from your business on your ecommerce platform or from checkout buttons built with mypurse (unlike platforms like flutterwave and paystack e.t.c).",
+                      image: "public/resource/checkout.png"
                   }
               ]
           };
@@ -417,7 +427,9 @@ Mypursepay is an embedded commercial platform for individuals, businesses, and i
               const nextContent = morphState.content[nextIndex];
               
               // Update image first
-              updateImage(imageEl, nextContent.image);
+              if (currentContent.image !== nextContent.image) {
+                  updateImage(imageEl, nextContent.image);
+              }
               
               // Morph title and smoothly update description
               morphText(titleEl, currentContent.title, nextContent.title , 1200, () => {
@@ -449,7 +461,7 @@ Mypursepay is an embedded commercial platform for individuals, businesses, and i
               initMorphCycle();
           }
       })();
-  </script> -->
+  </script>
 
   <section class="mp_third">
         <div class="mp_third_1">
@@ -484,10 +496,10 @@ Mypursepay is an embedded commercial platform for individuals, businesses, and i
                         description: "Everything is intelligent, and you are at the center of it. Our AI systems knows exactly where and what your money is doing and it answers to you."
                     },
                     {
-                        counter: 0.9,
+                        counter: 0.0,
                         counterSuffix: '%',
-                        headline: "Transaction fees",
-                        description: "With the lowest charges on any commercial infrastructure, Mypursepay caps all transaction fees at 0.9%. Transparent. Predictable."
+                        headline: "No transaction fees",
+                        description: "Users get their full money, and only pay for services used. No transaction fees on sold products, we dont take commissions e.t.c everything is predictable."
                     }
                 ]
             };
@@ -636,12 +648,19 @@ if (document.readyState === 'loading') {
 
       <section class="mp_sec mp_fourth">
         <div class="mp_sec_1 x10">
-          <img src="public/resource/pursebloom_3.png" alt="" />
+          <img src="public/resource/storescale.png" alt="" />
         </div>
         <div class="mp_intro_1">
           <div class="mp_intro_101 x09">
+            <div class="pill-container">
+                <span class="pill" style="background-color: #98F500 !important;">Business website</span>
+                <span class="pill" style="background-color: #FF0ACB !important;">Self managed</span>
+                <span class="pill" style="background-color: #FF645C !important;">Customizable</span>
+                <span class="pill" style="background-color: #5FFFC5 !important;">Add your team</span>
+                <span class="pill" style="background-color: #98F500 !important;">Instant payment confirmation</span>
+            </div>
             <h1>
-             Multi-Tenant Ecommerce, Built for Scale
+             Start, sell, and scale your business
               <img src="public/resource/pursereceipt.png" alt="MyPurse receipt icon" />
             </h1>
             <p>
@@ -839,6 +858,7 @@ Seamless workforce payments and financial operations in one place. From scheduli
         <p>Disconnected systems without real-time insight or coordination.</p>
         <p>Logistics, payouts, and customer management handled in silos.</p>
         <p>Limited data visibility, inconsistent automation, and fragile integrations.</p>
+        <p>High transaction costs and delayed access to funds.</p>
       </div>
       <div class="x32">
         <h1>With Mypursepay</h1>
@@ -848,6 +868,7 @@ Seamless workforce payments and financial operations in one place. From scheduli
         <p>AI-driven insights for smarter budgeting, spending, and business growth.</p>
         <p>Built-in affiliate, escrow, and payout systems that work seamlessly together.</p>
         <p>Adaptive security and resilient cloud architecture for continuous, reliable performance.</p>
+        <p>0% transaction fees and same-day payouts.</p>
       </div>
     </div>
     <br /><br /><br />
@@ -1019,6 +1040,11 @@ document.addEventListener("DOMContentLoaded", function() {
           }
         });
       }
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      lucide.createIcons();
     });
   </script>
 </html>
