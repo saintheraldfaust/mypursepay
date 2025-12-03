@@ -323,6 +323,30 @@ Mypursepay is an embedded commercial platform for individuals, businesses, and i
           });
         </script>
       </section>
+
+      <div class="mp_marquee">
+        <div class="marquee-track">
+          <div class="marquee-item">Run discounts</div>
+          <div class="marquee-item">Business website</div>
+          <div class="marquee-item">Instant payment confirmation</div>
+          <div class="marquee-item">Multicurrency support</div>
+          <div class="marquee-item">Manage inventories</div>
+          <div class="marquee-item">Analytics</div>
+          <div class="marquee-item">Staff accounts</div>
+          <div class="marquee-item">Checkout buttons</div>
+          
+          <!-- Duplicate for infinite loop -->
+          <div class="marquee-item">Run discounts</div>
+          <div class="marquee-item">Business website</div>
+          <div class="marquee-item">Instant payment confirmation</div>
+          <div class="marquee-item">Multicurrency support</div>
+          <div class="marquee-item">Manage inventories</div>
+          <div class="marquee-item">Analytics</div>
+          <div class="marquee-item">Staff accounts</div>
+          <div class="marquee-item">Checkout buttons</div>
+        </div>
+      </div>
+
       <section class="mp_sec">
         <div class="mp_sec_1">
             <img id="sectionImage" src="public/resource/checkout.png" alt="MyPurse Feature" />
@@ -681,7 +705,7 @@ if (document.readyState === 'loading') {
            Launch and manage digital storefronts with the power of a full ecommerce platform. Our commerce endpoint gives individuals, freelancers, and businesses the tools to sell, accept payments, and grow like never before — with built-in logistics management and affiliate programs inspired by leaders, and strengthened by relationships.
             </p>
             <br>
-            <a href="https://stores.mypursepay.com"><span class="button">Create a stores account</span></a>
+            <a href="https://app.mypursepay.com"><span class="button">Create a stores account</span></a>
           </div>
           
         </div>
@@ -1018,41 +1042,47 @@ document.addEventListener("DOMContentLoaded", function() {
       const productsMenuTrigger = document.getElementById('productsMenuTrigger');
 
       if (productWrapper && productsMenuTrigger) {
+        // Toggle function
         const toggleMenu = (e) => {
-          // Prevent link from navigating if it's a click
-          if (e.type === 'click') {
+          // Prevent default behavior for touch events to avoid double-firing
+          if (e.type === 'touchstart') {
             e.preventDefault();
           }
-          
-          const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-          const isClick = e.type === 'click';
-
-          if (isTouch || isClick) {
-            productWrapper.classList.toggle('menu-active');
-          }
+          e.stopPropagation();
+          productWrapper.classList.toggle('menu-active');
         };
 
+        // Add listeners
         productsMenuTrigger.addEventListener('click', toggleMenu);
+        productsMenuTrigger.addEventListener('touchstart', toggleMenu, { passive: false });
 
+        // Desktop hover behavior
         productWrapper.addEventListener('mouseenter', () => {
-          const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-          if (!isTouch) {
+          // Only enable hover if not a touch device to prevent sticky hover states
+          if (!('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
             productWrapper.classList.add('menu-active');
           }
         });
 
         productWrapper.addEventListener('mouseleave', () => {
-          const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-          if (!isTouch) {
+          if (!('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
             productWrapper.classList.remove('menu-active');
           }
         });
 
+        // Close when clicking outside
         document.addEventListener('click', (e) => {
           if (!productWrapper.contains(e.target)) {
             productWrapper.classList.remove('menu-active');
           }
         });
+        
+        // Close when touching outside
+        document.addEventListener('touchstart', (e) => {
+          if (!productWrapper.contains(e.target)) {
+            productWrapper.classList.remove('menu-active');
+          }
+        }, { passive: true });
       }
     });
   </script>

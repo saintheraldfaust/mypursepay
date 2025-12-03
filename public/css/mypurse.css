@@ -22,14 +22,14 @@ body {
 }
 .mp_nav {
   width: 100%;
-  /* position: fixed; */
+  position: relative;
   top: 0;
   left: 0;
   padding-left: 2%;
   padding-right: 2%;
   right: 0;
   height: 60px;
-  z-index: 3;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   background-color: black;
@@ -81,6 +81,42 @@ body {
   justify-content: space-between;
   align-items: center;
   overflow: hidden;
+}
+
+.mp_marquee {
+  width: 100%;
+  overflow: hidden;
+  background-color: #FAFAE7;
+  padding: 1.5rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.marquee-item {
+  color: #000;
+  font-family: "Clash Display", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0 1.5rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .mp_sec {
@@ -1298,6 +1334,12 @@ a {
     padding: 0.5rem 1rem;
     border-radius: 6px;
     transition: background-color 0.2s ease;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
   }
   
   .trigger:hover {
